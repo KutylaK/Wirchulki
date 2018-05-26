@@ -8,10 +8,13 @@ namespace Grafy
 {
     class Program
     {
-        public static 
+        
 
         static void Main(string[] args)
         {
+            int[,] E = { { 1, 2 }, { 1, 5 }, { 2, 3 }, { 2, 5 }, { 3, 4 }, { 4, 5 }, { 4, 6 } };
+
+            Console.ReadKey();
         }
     }
 }
