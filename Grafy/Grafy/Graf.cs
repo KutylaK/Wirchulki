@@ -8,54 +8,44 @@ namespace Grafy
 {
     class Graf
     {
-        List<int> wierzcholki;
-        public List<int> Wierzcholki
+        public List<Krawedz> lista = new List<Krawedz>();
+       
+        public Graf(List<Krawedz> k)
         {
-            get { return wierzcholki; }
-            set { wierzcholki = value; }
-        }
-        List<List<int>> krawedzie = new List<List<int>>();
-        public List<List<int>> Krawedzie
-        {
-            get { return krawedzie; }
-            set { krawedzie = value; }
+            lista = k;
+            //for (int i = 0; i < k.Count(); i++)
+            //{
+            //    for (int j = i+1; j < k.Count(); j++)
+            //    {
+            //        if(k[i].start==k[j].koniec && k[i].koniec==k[i].start && k[i].wartosc==k[j].wartosc)
+            //        {
+            //            lista.RemoveAt(j);
+            //        }
+            //    }
+            //}
         }
 
-        public Graf(int[] tablicaWierzcholkow, int[,] tablicaKrawedzi)
+        public int IleKrawedzi(int wierzcholek)
         {
-            Wierzcholki = tablicaWierzcholkow.ToList<int>();
-            for (int i = 0; i < tablicaKrawedzi.GetLength(0); i++)
+            int n = 0;
+            foreach (var item in lista)
             {
-                Krawedzie.Add(new List<int>());
-                for (int j = 0; j < tablicaKrawedzi.GetLength(1); j++)
+                if (item.start==wierzcholek)
                 {
-                    Krawedzie[i].Add(tablicaKrawedzi[i, j]);
+                    n++;
                 }
             }
+            return n;
         }
 
-        public Graf MinimalneDrzewoRozpinajace(Graf badany, int start)
+        public override string ToString()
         {
-            int[] koszt = new int[badany.wierzcholki.Count()];
-            Graf[] poprzednik = new Graf[badany.wierzcholki.Count()];
-            for (int i = 0; i < koszt.Length; i++)
+            string tmp = "";
+            foreach (var item in lista)
             {
-                koszt[i] = int.MaxValue;
-                poprzednik = null;
+                tmp += item + "\n\r";
             }
-
-            koszt[start] = 0;
-
-            KolejkaPriorytetowa<int> kolejkaPriorytetowa = new KolejkaPriorytetowa<int>();
-            while (kolejkaPriorytetowa.Kolejka.Count != 0)
-            {
-                do
-                {
-
-                } while (true);
-            }
+            return tmp;
         }
-
     }
 }
- 
